@@ -1,0 +1,72 @@
+/* Global reset to avoid default padding/margin issues */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body background and layout */
+  body {
+    background: linear-gradient(135deg, #c0392b, #8e44ad), url('https://www.toptal.com/designers/subtlepatterns/patterns/diagonal_stripes.png');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Main App container */
+  .App {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh; /* Adjust height to fit within the viewport */
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Allow space for header */
+  }
+  
+  /* App header styling */
+  .App-header {
+    background-color: #42071f; /* Header background color */
+    padding: 40px 20px; /* Add padding around the header */
+    text-align: center; /* Center the text */
+    color: white;
+    border-radius: 12px 12px 12px 12px; /* Rounded corners for the top */
+  }
+  
+  .App-header h1 {
+    font-size: 3rem; /* Set font size */
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Remove margin */
+  }
+  
+  .App-header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .App {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .App-header h1 {
+      font-size: 2rem; /* Adjust font size */
+    }
+  
+    .App-header p {
+      font-size: 1rem;
+    }
+  }
+  
