@@ -54,19 +54,19 @@ export const DataProvider = ({ children }) => {
         
         //console.log("Form data submitted", formData)
 
-        await checkGravatarExists(formData.email, apikey, setGravatarExists, setGravatarData)
+        const response = await checkGravatarExists(formData.email, apikey, setGravatarExists, setGravatarData)
 
-        console.log(gravatarData)
+        console.log(response);
 
         const mergedData = {
-            avatar_url : gravatarData?.avatar_url || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Favatar&psig=AOvVaw0fqpt9T1Tw0Kt9Js4ZzjTM&ust=1732773896608000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIiVl_rr-4kDFQAAAAAdAAAAABAE',
+            avatar_url : response?.avatar_url || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Favatar&psig=AOvVaw0fqpt9T1Tw0Kt9Js4ZzjTM&ust=1732773896608000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIiVl_rr-4kDFQAAAAAdAAAAABAE',
             fullname : formData.fullName,
-            display_name : gravatarData?.display_name || formData.username,
-            location : gravatarData?.location || formData.location,
+            display_name : response?.display_name || formData.username,
+            location : response?.location || formData.location,
             email : formData.email,
             phone : formData.phone,
-            bio : gravatarData?.description || formData.bio,
-            website : gravatarData?.profile_url || formData.website
+            bio : response?.description || formData.bio,
+            website : response?.profile_url || formData.website
         };
 
         setFinalData(mergedData);

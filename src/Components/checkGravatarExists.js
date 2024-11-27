@@ -16,7 +16,7 @@ const checkGravatarExists = async (email, apikey, setGravatarExists, setGravatar
 
     // If status is 200, Gravatar profile exists
     if (response.status === 200) {
-      console.log('Gravatar exists:');
+      console.log('Gravatar exists:', response.data);
       setGravatarData({
         avatar_url: response.data.avatar_url,
         display_name: response.data.display_name,
@@ -27,13 +27,16 @@ const checkGravatarExists = async (email, apikey, setGravatarExists, setGravatar
         profile_url: response.data.profile_url,
       });
       setGravatarExists(true);
+      return(response.data);
     } else {
       console.log('Gravatar not found');
       setGravatarExists(false);
+      return null;
     }
   } catch (error) {
     // If an error occurs, log the error and return false
     console.error('Error checking Gravatar:', error);
+    return null;
   }
 };
 
